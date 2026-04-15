@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <!-- 
+       VIVA EXAM NOTE:
+       What is web.xml?
+       It is the Deployment Descriptor. It Configures the application and the Servlet Container (Tomcat).
+       Here, we explicitly configure Tomcat's internal JspServlet to compile JSP files using 
+       Java 17 compatibility. If we use very new Java versions (like JDK 26) without this, 
+       Tomcat's built-in compiler might crash silently and throw "ClassNotFoundException: login_jsp".
+    -->
+    <servlet>
+        <servlet-name>jsp</servlet-name>
+        <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+        <init-param>
+            <param-name>compilerSourceVM</param-name>
+            <param-value>21</param-value>
+        </init-param>
+        <init-param>
+            <param-name>compilerTargetVM</param-name>
+            <param-value>21</param-value>
+        </init-param>
+        <!-- Makes debugging easier by keeping the auto-generated .java files -->
+        <init-param>
+            <param-name>keepgenerated</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>jsp</servlet-name>
+        <url-pattern>*.jsp</url-pattern>
+        <url-pattern>*.jspx</url-pattern>
+    </servlet-mapping>
+
+</web-app>

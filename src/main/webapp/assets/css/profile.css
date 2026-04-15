@@ -1,0 +1,250 @@
+/* ============================================================
+   profile.css — User profile / dashboard page styles
+   JSP links: styles.css + profile.css
+   ============================================================ */
+
+/* ── Dashboard Body ────────────────────────────────── */
+.dashboard-body {
+    background-color: #F4F6F4;
+    min-height: 100vh;
+}
+
+/* ── Sticky Navbar ─────────────────────────────────── */
+.navbar {
+    background-color: var(--white);
+    padding: 0 48px;
+    height: 68px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--cream-dark);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo {
+    height: 38px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links span {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    font-weight: 500;
+}
+
+/* ── Logout / Danger Button ────────────────────────── */
+.danger-btn-small {
+    background-color: var(--red);
+    color: #fff;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+.danger-btn-small:hover {
+    background-color: var(--red-dark);
+    box-shadow: 0 4px 12px rgba(217, 64, 64, 0.25);
+    transform: translateY(-1px);
+}
+
+/* ── Dashboard Container ───────────────────────────── */
+.dashboard-container {
+    padding: 48px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+/* ── Profile Card ──────────────────────────────────── */
+.profile-card {
+    background-color: var(--white);
+    padding: 48px;
+    border-radius: var(--radius);
+    border-top: 4px solid var(--green);
+    box-shadow: var(--shadow-md);
+    animation: fadeUp 0.5s ease-out forwards;
+}
+
+.profile-card h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 32px;
+    color: var(--text-dark);
+    font-size: 1.9rem;
+    border-bottom: 1.5px solid var(--cream-dark);
+    padding-bottom: 18px;
+}
+
+/* ── Profile Info 2-Column Grid ────────────────────── */
+.profile-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 0;
+}
+
+.info-group {
+    background: var(--cream);
+    padding: 18px 22px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--cream-dark);
+    transition: var(--transition);
+}
+.info-group:hover {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px var(--green-light);
+}
+
+.info-group label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-label);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.info-group p {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* ── Role Badges ───────────────────────────────────── */
+.badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+.badge-admin {
+    background-color: rgba(217, 64, 64, 0.1);
+    color: var(--red);
+    border: 1px solid rgba(217, 64, 64, 0.2);
+}
+.badge-user {
+    background-color: rgba(0, 103, 79, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(0, 103, 79, 0.2);
+}
+
+/* ── Admin Panel Link (shown only for admin users) ── */
+.admin-panel-link {
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: var(--green-light);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(0, 103, 79, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.admin-panel-link p {
+    color: var(--green);
+    font-weight: 500;
+    font-size: 0.92rem;
+}
+
+.secondary-btn {
+    background-color: var(--green);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.secondary-btn:hover { background-color: var(--green-dark); }
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE — Profile / Dashboard Page
+   ════════════════════════════════════════════════════ */
+
+/* ── Tablet (768px – 1023px) ──────────────────────── */
+@media (max-width: 1023px) {
+    .navbar { padding: 0 28px; }
+    .dashboard-container { padding: 36px 28px; }
+    .profile-card { padding: 36px; }
+}
+
+/* ── Mobile (≤ 767px) ─────────────────────────────── */
+@media (max-width: 767px) {
+    /* Navbar: compact on mobile */
+    .navbar {
+        padding: 0 16px;
+        height: 60px;
+    }
+
+    .nav-logo { height: 30px; }
+
+    /* Hide the welcome text span on mobile to save space */
+    .nav-links span { display: none; }
+
+    .danger-btn-small {
+        padding: 7px 14px;
+        font-size: 0.78rem;
+    }
+
+    /* Dashboard container: full-width with tighter padding */
+    .dashboard-container {
+        padding: 24px 16px;
+    }
+
+    /* Profile card: reduce padding */
+    .profile-card {
+        padding: 28px 20px;
+        border-radius: var(--radius-sm);
+    }
+
+    .profile-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        padding-bottom: 14px;
+    }
+
+    /* Profile grid: single column on mobile */
+    .profile-info {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    /* Admin panel link: stack vertically */
+    .admin-panel-link {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 18px 20px;
+    }
+
+    .secondary-btn { width: 100%; text-align: center; }
+}
+
+/* ── Small phones (≤ 480px) ───────────────────────── */
+@media (max-width: 480px) {
+    .profile-card { padding: 22px 16px; }
+    .info-group { padding: 14px 16px; }
+    .info-group p { font-size: 0.95rem; }
+}

@@ -1,0 +1,91 @@
+/* ============================================================
+   MERO MART — Global Base Styles
+   Shared across ALL pages: variables, reset, body, buttons, alerts
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── Design Tokens ─────────────────────────────────── */
+:root {
+    --green:          #00674F;
+    --green-dark:     #004d3b;
+    --green-light:    rgba(0, 103, 79, 0.08);
+    --cream:          #F7F2EA;
+    --cream-dark:     #EFE7D9;
+    --input-bg:       #F4EFE6;
+    --white:          #ffffff;
+    --text-dark:      #1A1A1A;
+    --text-mid:       rgba(26,26,26,0.65);
+    --text-muted:     rgba(26,26,26,0.45);
+    --text-label:     rgba(26,26,26,0.55);
+    --red:            #D94040;
+    --red-dark:       #b82f2f;
+    --shadow-sm:      0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:      0 8px 24px rgba(0,0,0,0.09);
+    --shadow-lg:      0 20px 50px rgba(0,0,0,0.12);
+    --radius:         12px;
+    --radius-sm:      8px;
+    --transition:     all 0.25s ease;
+}
+
+/* ── Reset ─────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--cream);
+    min-height: 100vh;
+}
+
+/* ── Fade-in Animation (shared by auth forms + profile card) */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Buttons ───────────────────────────────────────── */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.primary-btn {
+    background-color: var(--green);
+    color: #fff;
+    width: 100%;
+    letter-spacing: 0.3px;
+}
+.primary-btn:hover { background-color: var(--green-dark); }
+
+/* ── Alerts (login + register pages) ──────────────── */
+.alert {
+    padding: 14px 16px;
+    background-color: rgba(217, 64, 64, 0.08);
+    color: var(--red);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.88rem;
+    border: 1px solid rgba(217, 64, 64, 0.2);
+}
+.alert-success {
+    background-color: rgba(0, 103, 79, 0.08);
+    color: var(--green);
+    border: 1px solid rgba(0, 103, 79, 0.2);
+}

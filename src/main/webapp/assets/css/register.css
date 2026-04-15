@@ -1,0 +1,14 @@
+/* ============================================================
+   register.css — Register page overrides
+   Extends login.css: only overrides what's different on register
+   JSP links: styles.css + login.css + register.css
+   ============================================================ */
+
+/* ── Register Image Panel (vegetables background) ──── */
+.image-panel-register {
+    background-image:
+        linear-gradient(to top, rgba(0,40,25,0.85) 0%, rgba(0,60,40,0.35) 55%, transparent 100%),
+        url('../images/products/vegetables.jpeg');
+    background-size: cover;
+    background-position: center;
+}
